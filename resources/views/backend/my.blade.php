@@ -11,7 +11,7 @@
                 <div class="alert alert-success">{{ session('message') }}</div>
             @endif
 
-            @if ($user->subscription('default')->ends_at->isFuture() )
+            @if ( !is_null( $user->subscription('default')->ends_at ) && $user->subscription('default')->ends_at->isFuture() )
                 <div class="alert alert-info">
                     <i class="fas fa-info-circle mr-2"></i>
                     Your current subscription ends {{ $user->subscription('default')->ends_at->diffForHumans() }}. Visit your Billing options for more details.

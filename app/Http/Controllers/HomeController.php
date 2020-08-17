@@ -52,7 +52,7 @@ class HomeController extends Controller
                         // Check if is subscribed
                         if ($user->subscribed('default')) {
 
-                            if (! $user->subscription('default')->ends_at->isPast() ) {
+                            if (null == $user->subscription('default')->ends_at || ! $user->subscription('default')->ends_at->isPast() ) {
 
                                 /**
                                  * Success
