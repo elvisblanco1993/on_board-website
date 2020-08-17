@@ -54,7 +54,7 @@ class SupportController extends Controller
         $user = User::find(Auth::user()->id);
         $paymentMethod = $request->payment_method;
 
-        $user->newSubscription('default', 'price_1HE512GdZW6fMUNzx4RhPi9j')->create($paymentMethod);
+        $user->newSubscription('default', config('services.stripe.product'))->create($paymentMethod);
 
         return redirect()->route('my');
     }
